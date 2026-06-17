@@ -176,4 +176,8 @@ Dias da semana: 0=Dom, 1=Seg, 2=Ter, 3=Qua, 4=Qui, 5=Sex, 6=Sáb
 
 - Nunca compartilhe a pasta `auth_info/` — ela contém sua sessão do WhatsApp
 - Adicione `auth_info/` e `store.json` ao `.gitignore` se usar Git
-#
+
+## 📄 Licença
+
+MIT. Desenvolvido por Weslei.
+
