@@ -18,6 +18,7 @@ const logger = pino({ level: "silent" });
 // ─── Variável global do socket ─────────────────────────────────────────────────
 let sock = null;
 let reconectando = false;
+let agendamentosIniciados = false; // ← evita registrar os crons mais de uma vez
 
 // ══════════════════════════════════════════════════════════════════════════════
 //  FUNÇÕES UTILITÁRIAS
@@ -94,6 +95,12 @@ async function fecharGrupo() {
 // ══════════════════════════════════════════════════════════════════════════════
 
 function iniciarAgendamentos() {
+  if (agendamentosIniciados) {
+    log("Agendamentos já estavam ativos — ignorando novo registro.", "AVISO");
+    return;
+  }
+  agendamentosIniciados = true;
+
   log("Registrando agendamentos...", "INFO");
 
   // ── Quarta-feira: abrir às 08:00 ────────────────────────────────────────────
